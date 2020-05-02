@@ -1,0 +1,8 @@
+$ docker pull devopsdockeruh/exec_bash_exercise
+$ docker run -d --name msg devopsdockeruh/exec_bash_exercise
+$ docker exec -it msg bash
+root@dd2771844ade:/usr/app# tail -f ./logs.txt
+
+
+Secret message is:
+"Docker is easy"
