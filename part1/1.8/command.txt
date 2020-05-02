@@ -1,0 +1,3 @@
+$ docker pull devopsdockeruh/first_volume_exercise
+$ touch local_logs.txt
+$ docker run -d -it --name volume -v "$(pwd)"/local_logs.txt:/usr/app/logs.txt devopsdockeruh/first_volume_exercise
