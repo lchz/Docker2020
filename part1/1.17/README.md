@@ -1,0 +1,5 @@
+# Docker for Node
+This docker image created an environment for Node projects using ubuntu:16.04 image as a basis.
+
+## Link to Docker hub
+https://hub.docker.com/r/lchz/node_base
