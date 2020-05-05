@@ -1,0 +1,36 @@
+version: '3.5' 
+
+services:
+    db:
+        image: postgres
+        restart: unless-stopped
+        environment:
+            POSTGRES_PASSWORD: backend
+        container_name: db_node
+
+    backend:
+        image: lchz/backend-example
+        environment: 
+            - FRONT_URL=http://localhost:5000 
+            - REDIS=redis
+            - DB_USERNAME=postgres
+            - DB_PASSWORD=backend
+            - DB_NAME=postgres
+            - DB_HOST=db
+        container_name: backend
+        ports:
+            - 8000:8000
+        depends_on: 
+            - db
+
+    frontend:
+        image: lchz/frontend-example
+        environment:
+            - API_URL=http://localhost:8000
+        container_name: frontend
+        ports: 
+            - 5000:5000
+
+    redis:
+        image: redis
+        

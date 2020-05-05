@@ -1,0 +1,35 @@
+version: '3.5'
+
+services: 
+    training:
+        build: ./training-ml
+        image: training-ml
+        volumes: 
+            - model:/src/model
+            - images:/src/imgs
+            - data:/src/data
+        container_name: training
+
+    backend:
+        build: ./backend-ml
+        image: backend-ml
+        restart: on-failure
+        volumes: 
+            - model:/src/model
+        container_name: backend
+        ports:
+            - 5000:5000
+        depends_on: 
+            - training
+
+    frontend:
+        build: ./frontend-ml
+        image: frontend-ml
+        container_name: frontend
+        ports:
+            - 3000:3000
+
+volumes: 
+    model:
+    images:
+    data:
