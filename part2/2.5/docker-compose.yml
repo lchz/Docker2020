@@ -1,0 +1,20 @@
+version: '3.5'
+
+services: 
+    frontend:
+        image: lchz/frontend-example
+        environment:
+            - API_URL=http://localhost:8000
+        ports: 
+            - 5000:5000
+
+    backend:
+        image: lchz/backend-example
+        environment: 
+            - FRONT_URL=http://localhost:5000 
+            - REDIS=redis
+        ports:
+            - 8000:8000
+
+    redis:
+        image: redis
