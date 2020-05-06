@@ -1,1 +1,1 @@
-Since I got all of the buttons work in the exercise 2.8, I didn't have to change anything here. However, in 2.8 I removed the urls for both frontend and backend in `docker-compose.yml`. Besides, I also changed the urls in volume file `file.conf` so that urls for both sides could work.
+Since I've got all of the buttons work in the exercise 2.8, I didn't have to change anything here. However, in 2.8 I removed the urls for both frontend and backend in `docker-compose.yml`. Besides, I also changed the urls in volume file `file.conf` so that urls for both sides could work.
