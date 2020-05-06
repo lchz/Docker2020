@@ -1,0 +1,48 @@
+version: '3.5' 
+
+services:
+    nginx:
+        image: nginx
+        restart: on-failure
+        volumes: 
+            - ./file.conf:/etc/nginx/nginx.conf
+        ports: 
+            - 80:80
+        container_name: nginx
+
+    db:
+        image: postgres
+        restart: unless-stopped
+        environment:
+            POSTGRES_PASSWORD: backend
+        volumes: 
+            - database:/var/lib/postgresql/data
+        container_name: db_node
+
+    backend:
+        image: lchz/backend-example
+        restart: on-failure
+        environment: 
+            - REDIS=redis
+            - DB_USERNAME=postgres
+            - DB_PASSWORD=backend
+            - DB_NAME=postgres
+            - DB_HOST=db
+        container_name: backend
+        depends_on: 
+            - db
+
+    frontend:
+        image: lchz/frontend-example
+        container_name: frontend
+
+    redis:
+        image: redis
+        volumes: 
+            - cache:/data
+        container_name: redis
+
+volumes: 
+    database:
+    cache:
+                            
