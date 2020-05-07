@@ -19,15 +19,14 @@ add-apt-repository \
 apt-get -y install docker-ce docker-ce-cli containerd.io
 
 ### Clone repo ####
-echo "Enter a path of the git repository for cloning:"
+echo "Enter the path of the git repository for cloning:"
 read git_path
 echo "Set a directory to clone to:"
 read dir
 git clone $git_path $dir
 
-### Make Dockerfile ####
+### Add Dockerfile ####
 cd $dir
-rm Dockerfile
 echo -e "FROM node \nWORKDIR /mydir \nCOPY . . \nRUN npm install \nCMD ["npm", "start"]" >> Dockerfile
 
 ### Publish to Docker Hub ####
