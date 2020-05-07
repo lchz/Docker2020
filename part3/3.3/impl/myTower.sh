@@ -4,7 +4,7 @@
 apt-get update
 apt-get install -y git
 
-### Download docker engin ###
+### Download Docker ###
 apt-get install \
     apt-transport-https \
     ca-certificates \
