@@ -9,5 +9,5 @@ Backend: (~330 MB)
 Frontend: (~418 MB)
 ![opt-frontend](https://github.com/lchz/Docker2020/blob/master/part3/3.1/pics/opt-frontend.png)
 
-Backend: (~301 MB)
+Backend: (~302 MB)
 ![opt-backend](https://github.com/lchz/Docker2020/blob/master/part3/3.1/pics/opt-backend.png)
