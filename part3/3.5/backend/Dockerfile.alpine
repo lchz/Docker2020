@@ -1,0 +1,18 @@
+FROM node:alpine
+
+ENV FRONT_URL=http://localhost:5000
+
+RUN adduser -D backend
+
+WORKDIR /backend
+COPY ./backend-example-docker/ ./
+
+RUN chown -hR backend .
+
+USER backend
+
+RUN npm install
+
+EXPOSE 8000
+
+CMD ["npm","start"]

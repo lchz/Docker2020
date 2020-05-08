@@ -1,0 +1,14 @@
+version: '3.5'
+
+services: 
+    frontend:
+        image: non-root-frontend
+        ports:
+            - 5000:5000
+        container_name: non-frontend
+        
+    backend:
+        image: non-root-backend
+        ports:
+            - 8000:8000
+        container_name: non-backend
